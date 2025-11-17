@@ -2,25 +2,78 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  --primary-red: #C13741;
+  --primary-navy: #1E3A5F;
+  --accent-red: #D94651;
+  --accent-navy: #2B4A70;
+  --light-red: #FEF2F3;
+  --light-navy: #F0F4F8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary-red: var(--primary-red);
+  --color-primary-navy: var(--primary-navy);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Editorial Typography Enhancements */
+article {
+  /* Optimized reading experience */
+  line-height: 1.75;
+  letter-spacing: -0.011em;
+}
+
+/* Improved paragraph spacing for long-form content */
+article p + p {
+  margin-top: 1.5em;
+}
+
+/* Enhanced headings hierarchy */
+article h2 {
+  scroll-margin-top: 2rem;
+}
+
+article h3 {
+  scroll-margin-top: 2rem;
+}
+
+/* Smooth transitions for interactive elements */
+article a {
+  transition: color 0.2s ease-in-out;
+}
+
+/* Better blockquote styling */
+article blockquote {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Enhanced list styling */
+article ul {
+  list-style: none;
+}
+
+article ul li {
+  position: relative;
+}
+
+/* Callout boxes and highlights */
+article .callout {
+  background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.04) 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  article .callout {
+    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.04) 100%);
+  }
 }

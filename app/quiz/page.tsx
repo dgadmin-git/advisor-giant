@@ -4,50 +4,50 @@ import Image from "next/image";
 import { useState } from "react";
 
 type FormData = {
-  advisorType: string;
-  aum: string;
-  clientFocus: string[];
-  growthGoal: string;
-  challenges: string[];
-  timeline: string;
-  name: string;
+  hasAdvisor: string;
+  age: string;
+  retirementPlan: string;
+  businessOwner: string;
+  investableAssets: string;
+  zipCode: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
-  firm: string;
 };
 
 export default function QuizPage() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [showLoading, setShowLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    advisorType: '',
-    aum: '',
-    clientFocus: [],
-    growthGoal: '',
-    challenges: [],
-    timeline: '',
-    name: '',
+    hasAdvisor: '',
+    age: '',
+    retirementPlan: '',
+    businessOwner: '',
+    investableAssets: '',
+    zipCode: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
-    firm: '',
   });
 
-  const totalSteps = 7;
+  const totalSteps = 8;
 
-  const updateFormData = (field: keyof FormData, value: string | string[]) => {
+  const updateFormData = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const toggleArrayValue = (field: 'clientFocus' | 'challenges', value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: prev[field].includes(value)
-        ? prev[field].filter(item => item !== value)
-        : [...prev[field], value]
-    }));
-  };
-
   const nextStep = () => {
-    if (currentStep < totalSteps) {
+    // Show loading page after email step (step 8)
+    if (currentStep === 8) {
+      setShowLoading(true);
+      setTimeout(() => {
+        setShowLoading(false);
+        setCurrentStep(9);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 3000);
+    } else if (currentStep < 9) {
       setCurrentStep(currentStep + 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -63,19 +63,23 @@ export default function QuizPage() {
   const canProceed = () => {
     switch (currentStep) {
       case 1:
-        return formData.advisorType !== '';
+        return formData.hasAdvisor !== '';
       case 2:
-        return formData.aum !== '';
+        return formData.age !== '';
       case 3:
-        return formData.clientFocus.length > 0;
+        return formData.retirementPlan !== '';
       case 4:
-        return formData.growthGoal !== '';
+        return formData.businessOwner !== '';
       case 5:
-        return formData.challenges.length > 0;
+        return formData.investableAssets !== '';
       case 6:
-        return formData.timeline !== '';
+        return formData.zipCode !== '' && formData.zipCode.length >= 5;
       case 7:
-        return formData.name !== '' && formData.email !== '' && formData.phone !== '';
+        return formData.firstName !== '' && formData.lastName !== '';
+      case 8:
+        return formData.email !== '';
+      case 9:
+        return formData.phone !== '';
       default:
         return false;
     }
@@ -83,9 +87,80 @@ export default function QuizPage() {
 
   const handleSubmit = () => {
     console.log('Form submitted:', formData);
-    // Handle form submission here
-    alert('Thank you! Your quiz results will be sent to your email.');
+    alert('Thank you! We are matching you with financial advisors.');
   };
+
+  const getStepHeader = () => {
+    if (currentStep === 7) return "2 Steps Away!";
+    if (currentStep === 8) return "1 Step Away!";
+    if (currentStep === 9) return "Last Step!";
+    return "Find your financial advisor match";
+  };
+
+  // Loading page
+  if (showLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-white to-[#F0F4F8]">
+        <header className="border-b border-zinc-200 bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-4">
+            <a href="/">
+              <Image
+                src="/logo.png"
+                alt="Advisor Giant"
+                width={200}
+                height={50}
+                className="h-auto w-40"
+              />
+            </a>
+          </div>
+        </header>
+
+        <div className="mx-auto max-w-3xl px-6 py-12">
+          <div className="mb-8">
+            <h1 className="mb-6 text-center text-4xl font-bold text-[#1E3A5F]">1 Step Away!</h1>
+            <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-200">
+              <div className="h-full bg-gradient-to-r from-[#5B4FE9] to-[#7C72FF]" style={{ width: '90%' }} />
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-zinc-200 bg-white p-12 shadow-xl text-center">
+            <h2 className="mb-8 text-3xl font-bold text-[#1E3A5F]">
+              Please wait as we analyze your information
+            </h2>
+
+            <div className="mb-8">
+              <div className="mx-auto h-2 w-64 overflow-hidden rounded-full bg-zinc-200">
+                <div className="h-full animate-pulse bg-gradient-to-r from-green-500 to-green-400" style={{ width: '60%' }} />
+              </div>
+            </div>
+
+            <div className="mb-8 grid grid-cols-3 gap-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="rounded-xl bg-zinc-100 p-6">
+                  <div className="mx-auto mb-4 h-32 w-32 rounded-full bg-zinc-300" style={{ filter: 'blur(8px)' }} />
+                  <div className="h-4 bg-zinc-200 rounded mb-2" />
+                  <div className="h-3 bg-zinc-200 rounded" />
+                </div>
+              ))}
+            </div>
+
+            <p className="mb-8 text-zinc-600">
+              Our network includes professional financial advisors who may be a good fit for your goals.
+            </p>
+
+            <p className="mb-6 font-semibold text-zinc-700">Some of our partners include:</p>
+
+            <div className="flex items-center justify-center gap-8 flex-wrap opacity-60">
+              <div className="text-sm font-bold text-zinc-600">ENCORE</div>
+              <div className="text-sm font-bold text-zinc-600">Retirable</div>
+              <div className="text-sm font-bold text-zinc-600">Facet</div>
+              <div className="text-sm font-bold text-zinc-600">moneypickle</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#F0F4F8]">
@@ -106,19 +181,12 @@ export default function QuizPage() {
 
       {/* Main Content */}
       <div className="mx-auto max-w-3xl px-6 py-12">
-        {/* Progress Bar */}
-        <div className="mb-12">
-          <div className="mb-3 flex items-center justify-between text-sm">
-            <span className="font-semibold text-[#1E3A5F]">
-              Step {currentStep} of {totalSteps}
-            </span>
-            <span className="text-zinc-600">
-              {Math.round((currentStep / totalSteps) * 100)}% Complete
-            </span>
-          </div>
+        {/* Progress Header */}
+        <div className="mb-8">
+          <h1 className="mb-6 text-center text-3xl font-bold text-[#1E3A5F]">{getStepHeader()}</h1>
           <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-200">
             <div
-              className="h-full bg-gradient-to-r from-[#C13741] to-[#D94651] transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#5B4FE9] to-[#7C72FF] transition-all duration-500 ease-out"
               style={{ width: `${(currentStep / totalSteps) * 100}%` }}
             />
           </div>
@@ -126,420 +194,370 @@ export default function QuizPage() {
 
         {/* Quiz Card */}
         <div className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-xl sm:p-12">
-          {/* Step 1: Advisor Type */}
+          {/* Step 1: Has Advisor */}
           {currentStep === 1 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="mb-2 text-3xl font-bold text-[#1E3A5F]">
-                  What best describes your practice?
-                </h2>
-                <p className="text-zinc-600">
-                  Help us understand your current advisory setup
-                </p>
-              </div>
-              <div className="space-y-3">
+            <div className="space-y-8">
+              <h2 className="text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                Do you currently have a financial advisor?
+              </h2>
+              <div className="space-y-4">
                 {[
-                  { value: 'independent-ria', label: 'Independent RIA' },
-                  { value: 'wirehouse', label: 'Wirehouse Advisor' },
-                  { value: 'hybrid', label: 'Hybrid Advisor' },
-                  { value: 'insurance-based', label: 'Insurance-Based Advisor' },
-                  { value: 'team-practice', label: 'Team Practice' },
-                  { value: 'solo-practitioner', label: 'Solo Practitioner' },
+                  { value: 'yes', label: 'Yes' },
+                  { value: 'no', label: 'No' },
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateFormData('advisorType', option.value)}
-                    className={`w-full rounded-xl border-2 p-4 text-left transition-all ${
-                      formData.advisorType === option.value
-                        ? 'border-[#C13741] bg-[#FEF2F3] text-[#1E3A5F]'
-                        : 'border-zinc-200 hover:border-[#1E3A5F] hover:bg-[#F0F4F8]'
+                    onClick={() => updateFormData('hasAdvisor', option.value)}
+                    className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
+                      formData.hasAdvisor === option.value
+                        ? 'border-[#5B4FE9] bg-[#F3F2FF]'
+                        : 'border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50'
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">{option.label}</span>
-                      {formData.advisorType === option.value && (
-                        <svg className="h-6 w-6 text-[#C13741]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
+                    {option.label}
                   </button>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Step 2: AUM */}
+          {/* Step 2: Age */}
           {currentStep === 2 && (
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div>
-                <h2 className="mb-2 text-3xl font-bold text-[#1E3A5F]">
-                  What are your current Assets Under Management?
+                <h2 className="mb-4 text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                  How old are you?
                 </h2>
-                <p className="text-zinc-600">
-                  This helps us match you with the right opportunities
-                </p>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { value: '0-10m', label: '$0 - $10 Million' },
-                  { value: '10m-50m', label: '$10M - $50 Million' },
-                  { value: '50m-100m', label: '$50M - $100 Million' },
-                  { value: '100m-250m', label: '$100M - $250 Million' },
-                  { value: '250m-500m', label: '$250M - $500 Million' },
-                  { value: '500m+', label: '$500 Million+' },
-                ].map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => updateFormData('aum', option.value)}
-                    className={`w-full rounded-xl border-2 p-4 text-left transition-all ${
-                      formData.aum === option.value
-                        ? 'border-[#C13741] bg-[#FEF2F3] text-[#1E3A5F]'
-                        : 'border-zinc-200 hover:border-[#1E3A5F] hover:bg-[#F0F4F8]'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">{option.label}</span>
-                      {formData.aum === option.value && (
-                        <svg className="h-6 w-6 text-[#C13741]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 3: Client Focus */}
-          {currentStep === 3 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="mb-2 text-3xl font-bold text-[#1E3A5F]">
-                  What types of clients do you focus on?
-                </h2>
-                <p className="text-zinc-600">
-                  Select all that apply
-                </p>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { value: 'uhnw', label: 'Ultra High Net Worth ($5M+)' },
-                  { value: 'hnw', label: 'High Net Worth ($1M-$5M)' },
-                  { value: 'mass-affluent', label: 'Mass Affluent ($250K-$1M)' },
-                  { value: 'retirees', label: 'Retirees & Pre-Retirees' },
-                  { value: 'business-owners', label: 'Business Owners' },
-                  { value: 'executives', label: 'Corporate Executives' },
-                  { value: 'professionals', label: 'Doctors, Lawyers, etc.' },
-                ].map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => toggleArrayValue('clientFocus', option.value)}
-                    className={`w-full rounded-xl border-2 p-4 text-left transition-all ${
-                      formData.clientFocus.includes(option.value)
-                        ? 'border-[#C13741] bg-[#FEF2F3] text-[#1E3A5F]'
-                        : 'border-zinc-200 hover:border-[#1E3A5F] hover:bg-[#F0F4F8]'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">{option.label}</span>
-                      {formData.clientFocus.includes(option.value) && (
-                        <svg className="h-6 w-6 text-[#C13741]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 4: Growth Goal */}
-          {currentStep === 4 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="mb-2 text-3xl font-bold text-[#1E3A5F]">
-                  What's your primary growth goal?
-                </h2>
-                <p className="text-zinc-600">
-                  Choose the most important objective for your practice
-                </p>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { value: 'acquire-uhnw', label: 'Acquire Ultra High Net Worth Clients', desc: 'Focus on $5M+ portfolios' },
-                  { value: 'scale-aum', label: 'Scale AUM Rapidly', desc: 'Grow assets under management' },
-                  { value: 'diversify-revenue', label: 'Diversify Revenue Streams', desc: 'Add new service offerings' },
-                  { value: 'improve-efficiency', label: 'Improve Practice Efficiency', desc: 'Streamline operations' },
-                  { value: 'succession-planning', label: 'Succession Planning', desc: 'Prepare for transition' },
-                ].map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => updateFormData('growthGoal', option.value)}
-                    className={`w-full rounded-xl border-2 p-4 text-left transition-all ${
-                      formData.growthGoal === option.value
-                        ? 'border-[#C13741] bg-[#FEF2F3] text-[#1E3A5F]'
-                        : 'border-zinc-200 hover:border-[#1E3A5F] hover:bg-[#F0F4F8]'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-medium">{option.label}</div>
-                        <div className="text-sm text-zinc-600">{option.desc}</div>
-                      </div>
-                      {formData.growthGoal === option.value && (
-                        <svg className="h-6 w-6 flex-shrink-0 text-[#C13741]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 5: Challenges */}
-          {currentStep === 5 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="mb-2 text-3xl font-bold text-[#1E3A5F]">
-                  What are your biggest challenges?
-                </h2>
-                <p className="text-zinc-600">
-                  Select all that apply
-                </p>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { value: 'finding-uhnw', label: 'Finding qualified UHNW prospects' },
-                  { value: 'high-marketing-costs', label: 'High client acquisition costs' },
-                  { value: 'lack-referrals', label: 'Lack of quality referrals' },
-                  { value: 'competing-wirehouses', label: 'Competing with larger firms' },
-                  { value: 'time-management', label: 'Time management and efficiency' },
-                  { value: 'scaling-operations', label: 'Scaling operations' },
-                  { value: 'technology-gaps', label: 'Technology and systems gaps' },
-                ].map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => toggleArrayValue('challenges', option.value)}
-                    className={`w-full rounded-xl border-2 p-4 text-left transition-all ${
-                      formData.challenges.includes(option.value)
-                        ? 'border-[#C13741] bg-[#FEF2F3] text-[#1E3A5F]'
-                        : 'border-zinc-200 hover:border-[#1E3A5F] hover:bg-[#F0F4F8]'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">{option.label}</span>
-                      {formData.challenges.includes(option.value) && (
-                        <svg className="h-6 w-6 text-[#C13741]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 6: Timeline */}
-          {currentStep === 6 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="mb-2 text-3xl font-bold text-[#1E3A5F]">
-                  When are you looking to get started?
-                </h2>
-                <p className="text-zinc-600">
-                  Your timeline helps us prioritize your needs
-                </p>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { value: 'immediately', label: 'Immediately', desc: 'Ready to start now' },
-                  { value: '1-month', label: 'Within 1 Month', desc: 'Planning to start soon' },
-                  { value: '1-3-months', label: '1-3 Months', desc: 'Exploring options' },
-                  { value: '3-6-months', label: '3-6 Months', desc: 'Long-term planning' },
-                  { value: 'just-researching', label: 'Just Researching', desc: 'Gathering information' },
-                ].map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => updateFormData('timeline', option.value)}
-                    className={`w-full rounded-xl border-2 p-4 text-left transition-all ${
-                      formData.timeline === option.value
-                        ? 'border-[#C13741] bg-[#FEF2F3] text-[#1E3A5F]'
-                        : 'border-zinc-200 hover:border-[#1E3A5F] hover:bg-[#F0F4F8]'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-medium">{option.label}</div>
-                        <div className="text-sm text-zinc-600">{option.desc}</div>
-                      </div>
-                      {formData.timeline === option.value && (
-                        <svg className="h-6 w-6 flex-shrink-0 text-[#C13741]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 7: Contact Info */}
-          {currentStep === 7 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="mb-2 text-3xl font-bold text-[#1E3A5F]">
-                  Get Your Personalized Results
-                </h2>
-                <p className="text-zinc-600">
-                  Enter your details to receive your advisor readiness score and custom recommendations
+                <p className="text-center text-lg text-zinc-600">
+                  Financial needs change over time, and we want to provide the best advice for your stage of life. Our services are available to those 18 and older.
                 </p>
               </div>
               <div className="space-y-4">
+                {[
+                  { value: '30-under', label: '30 and under' },
+                  { value: '31-40', label: '31-40' },
+                  { value: '41-50', label: '41-50' },
+                  { value: '51-60', label: '51-60' },
+                  { value: '61-over', label: '61 and over' },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => updateFormData('age', option.value)}
+                    className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
+                      formData.age === option.value
+                        ? 'border-[#5B4FE9] bg-[#F3F2FF]'
+                        : 'border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50'
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Retirement */}
+          {currentStep === 3 && (
+            <div className="space-y-8">
+              <h2 className="text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                When do you plan to retire?
+              </h2>
+              <div className="space-y-4">
+                {[
+                  { value: 'retired', label: 'I am currently retired' },
+                  { value: 'less-1yr', label: 'In less than 1 year' },
+                  { value: '1-5yrs', label: '1 - 5 years' },
+                  { value: '6-10yrs', label: '6 - 10 years' },
+                  { value: '11plus', label: '11+ years' },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => updateFormData('retirementPlan', option.value)}
+                    className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
+                      formData.retirementPlan === option.value
+                        ? 'border-[#5B4FE9] bg-[#F3F2FF]'
+                        : 'border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50'
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 4: Business Owner */}
+          {currentStep === 4 && (
+            <div className="space-y-8">
+              <h2 className="text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                Are you a business owner?
+              </h2>
+              <div className="space-y-4">
+                {[
+                  { value: 'yes', label: 'Yes' },
+                  { value: 'no', label: 'No' },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => updateFormData('businessOwner', option.value)}
+                    className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
+                      formData.businessOwner === option.value
+                        ? 'border-[#5B4FE9] bg-[#F3F2FF]'
+                        : 'border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50'
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 5: Investable Assets */}
+          {currentStep === 5 && (
+            <div className="space-y-8">
+              <div>
+                <h2 className="mb-4 text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                  Please estimate your total investable assets.
+                </h2>
+                <p className="text-center text-lg text-zinc-600">
+                  Include any investment accounts, retirement accounts, cash or cash equivalents
+                </p>
+              </div>
+              <div className="space-y-4">
+                {[
+                  { value: '10m-plus', label: 'More than $10M' },
+                  { value: '2m-10m', label: '$2M - $10M' },
+                  { value: '1m-2m', label: '$1M - $2M' },
+                  { value: '500k-1m', label: '$500,000 - $1M' },
+                  { value: '250k-500k', label: '$250,000 - $500,000' },
+                  { value: 'less-250k', label: 'Less than $250,000' },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => updateFormData('investableAssets', option.value)}
+                    className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
+                      formData.investableAssets === option.value
+                        ? 'border-[#5B4FE9] bg-[#F3F2FF]'
+                        : 'border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50'
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 6: Zip Code */}
+          {currentStep === 6 && (
+            <div className="space-y-8">
+              <div>
+                <h2 className="mb-4 text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                  What is your zip code?
+                </h2>
+                <p className="text-center text-lg text-zinc-600">
+                  We ask for your ZIP code to connect you with financial advisors who are familiar with your region and its financial landscape. At this time, we can only work with U.S. citizens.
+                </p>
+              </div>
+              <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="mb-1 block text-sm font-medium text-zinc-700">
-                    Full Name *
+                  <label htmlFor="zipCode" className="mb-2 block text-lg font-medium text-zinc-700">
+                    Zip Code
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => updateFormData('name', e.target.value)}
-                    className="w-full rounded-lg border border-zinc-300 px-4 py-3 text-base focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                    placeholder="John Smith"
+                    id="zipCode"
+                    value={formData.zipCode}
+                    onChange={(e) => updateFormData('zipCode', e.target.value)}
+                    className="w-full rounded-xl border-2 border-zinc-300 px-6 py-4 text-lg focus:border-[#5B4FE9] focus:outline-none"
+                    placeholder="Zip Code"
+                    maxLength={5}
+                  />
+                </div>
+                <button
+                  onClick={nextStep}
+                  disabled={!canProceed()}
+                  className={`flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white transition-all ${
+                    canProceed()
+                      ? 'bg-[#5B4FE9] hover:bg-[#4D42D7] shadow-lg'
+                      : 'cursor-not-allowed bg-zinc-300'
+                  }`}
+                >
+                  Next
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 7: Name */}
+          {currentStep === 7 && (
+            <div className="space-y-8">
+              <h2 className="text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                What is your name?
+              </h2>
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="firstName" className="mb-2 block text-lg font-medium text-zinc-700">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    value={formData.firstName}
+                    onChange={(e) => updateFormData('firstName', e.target.value)}
+                    className="w-full rounded-xl border-2 border-zinc-300 px-6 py-4 text-lg focus:border-[#5B4FE9] focus:outline-none"
+                    placeholder="First Name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-1 block text-sm font-medium text-zinc-700">
-                    Email Address *
+                  <label htmlFor="lastName" className="mb-2 block text-lg font-medium text-zinc-700">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    value={formData.lastName}
+                    onChange={(e) => updateFormData('lastName', e.target.value)}
+                    className="w-full rounded-xl border-2 border-zinc-300 px-6 py-4 text-lg focus:border-[#5B4FE9] focus:outline-none"
+                    placeholder="Last Name"
+                  />
+                </div>
+                <button
+                  onClick={nextStep}
+                  disabled={!canProceed()}
+                  className={`flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white transition-all ${
+                    canProceed()
+                      ? 'bg-[#5B4FE9] hover:bg-[#4D42D7] shadow-lg'
+                      : 'cursor-not-allowed bg-zinc-300'
+                  }`}
+                >
+                  Next
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 8: Email */}
+          {currentStep === 8 && (
+            <div className="space-y-8">
+              <div>
+                <h2 className="mb-4 text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                  What is your email?
+                </h2>
+                <p className="text-center text-lg text-zinc-600">
+                  We'll send important updates your way.
+                </p>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="email" className="mb-2 block text-lg font-medium text-zinc-700">
+                    Email
                   </label>
                   <input
                     type="email"
                     id="email"
                     value={formData.email}
                     onChange={(e) => updateFormData('email', e.target.value)}
-                    className="w-full rounded-lg border border-zinc-300 px-4 py-3 text-base focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                    placeholder="john@example.com"
+                    className="w-full rounded-xl border-2 border-zinc-300 px-6 py-4 text-lg focus:border-[#5B4FE9] focus:outline-none"
+                    placeholder="Email"
                   />
                 </div>
-                <div>
-                  <label htmlFor="phone" className="mb-1 block text-sm font-medium text-zinc-700">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    value={formData.phone}
-                    onChange={(e) => updateFormData('phone', e.target.value)}
-                    className="w-full rounded-lg border border-zinc-300 px-4 py-3 text-base focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="firm" className="mb-1 block text-sm font-medium text-zinc-700">
-                    Firm Name (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    id="firm"
-                    value={formData.firm}
-                    onChange={(e) => updateFormData('firm', e.target.value)}
-                    className="w-full rounded-lg border border-zinc-300 px-4 py-3 text-base focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                    placeholder="Your Firm Name"
-                  />
-                </div>
-                <div className="rounded-lg bg-[#F0F4F8] p-4">
-                  <div className="flex gap-3">
-                    <svg className="h-5 w-5 flex-shrink-0 text-[#1E3A5F]" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                    </svg>
-                    <p className="text-sm text-zinc-700">
-                      Your information is secure and will only be used to send your personalized results and network information.
-                    </p>
-                  </div>
-                </div>
+                <button
+                  onClick={nextStep}
+                  disabled={!canProceed()}
+                  className={`flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white transition-all ${
+                    canProceed()
+                      ? 'bg-[#5B4FE9] hover:bg-[#4D42D7] shadow-lg'
+                      : 'cursor-not-allowed bg-zinc-300'
+                  }`}
+                >
+                  Next
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
               </div>
             </div>
           )}
 
-          {/* Navigation Buttons */}
-          <div className="mt-8 flex items-center justify-between gap-4">
-            {currentStep > 1 ? (
-              <button
-                onClick={previousStep}
-                className="flex items-center gap-2 rounded-lg border-2 border-zinc-300 px-6 py-3 font-semibold text-zinc-700 transition-colors hover:border-[#1E3A5F] hover:text-[#1E3A5F]"
-              >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
-                Back
-              </button>
-            ) : (
-              <div></div>
-            )}
+          {/* Step 9: Phone Number (Last Step) */}
+          {currentStep === 9 && (
+            <div className="space-y-8">
+              <h2 className="text-center text-4xl font-bold leading-tight text-[#1E3A5F] sm:text-5xl">
+                What is your phone number?
+              </h2>
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="phone" className="mb-2 block text-lg font-medium text-zinc-700">
+                    Phone Number
+                  </label>
+                  <div className="relative">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5">
+                      <svg className="h-5 w-5 text-zinc-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                      </svg>
+                    </div>
+                    <input
+                      type="tel"
+                      id="phone"
+                      value={formData.phone}
+                      onChange={(e) => updateFormData('phone', e.target.value)}
+                      className="w-full rounded-xl border-2 border-zinc-300 px-6 py-4 pl-14 text-lg focus:border-[#5B4FE9] focus:outline-none"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                </div>
 
-            {currentStep < totalSteps ? (
-              <button
-                onClick={nextStep}
-                disabled={!canProceed()}
-                className={`flex items-center gap-2 rounded-lg px-8 py-3 font-semibold text-white transition-all ${
-                  canProceed()
-                    ? 'bg-[#C13741] hover:bg-[#D94651] shadow-lg shadow-[#C13741]/25'
-                    : 'cursor-not-allowed bg-zinc-300'
-                }`}
-              >
-                Continue
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </button>
-            ) : (
-              <button
-                onClick={handleSubmit}
-                disabled={!canProceed()}
-                className={`flex items-center gap-2 rounded-lg px-8 py-3 font-semibold text-white transition-all ${
-                  canProceed()
-                    ? 'bg-[#C13741] hover:bg-[#D94651] shadow-lg shadow-[#C13741]/25'
-                    : 'cursor-not-allowed bg-zinc-300'
-                }`}
-              >
-                Get My Results
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-              </button>
-            )}
-          </div>
-        </div>
+                <div className="rounded-lg bg-zinc-50 p-4 text-xs leading-relaxed text-zinc-600">
+                  <p>
+                    By clicking "See Advisor Match", you provide your express written consent to receive marketing and informational calls, emails, and text messages (including those using an automated dialer or prerecorded voice) from PCM Encore and the financial partners listed <a href="#" className="text-[#5B4FE9] underline">here</a> at the phone number and email address you provide. Message and data rates may apply. Message frequency may vary. You can opt out at any time by replying STOP or contacting us at <a href="mailto:hello@encoreinvestment.com" className="text-[#5B4FE9]">hello@encoreinvestment.com</a>. Reply HELP for help. Your consent is not required as a condition of purchase. See our <a href="#" className="text-[#5B4FE9] underline">Terms of Use</a> and <a href="#" className="text-[#5B4FE9] underline">Privacy Policy</a> for more. For California residents, click <a href="#" className="text-[#5B4FE9] underline">here</a>.
+                  </p>
+                </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-8 text-center">
-          <div className="flex items-center justify-center gap-8 text-sm text-zinc-600">
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-[#1E3A5F]" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Takes 2 minutes</span>
+                <button
+                  onClick={handleSubmit}
+                  disabled={!canProceed()}
+                  className={`flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white transition-all ${
+                    canProceed()
+                      ? 'bg-[#5B4FE9] hover:bg-[#4D42D7] shadow-lg'
+                      : 'cursor-not-allowed bg-zinc-300'
+                  }`}
+                >
+                  See Advisor Match
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-[#1E3A5F]" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+          )}
+
+          {/* Privacy Notice (bottom of all steps except phone and input steps) */}
+          {currentStep < 6 && (
+            <div className="mt-8 flex items-center justify-center gap-2 text-sm text-zinc-500">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>
-              <span>100% Secure</span>
+              <span>We respect your privacy. Your information is stored securely.</span>
             </div>
-            <div className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-[#1E3A5F]" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          )}
+
+          {/* Privacy Notice for input steps 6, 7, 8 */}
+          {(currentStep === 6 || currentStep === 7 || currentStep === 8) && (
+            <div className="mt-8 flex items-center justify-center gap-2 text-sm text-zinc-500">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>
-              <span>No obligation</span>
+              <span>We respect your privacy. Your information is stored securely.</span>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

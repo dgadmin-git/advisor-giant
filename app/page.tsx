@@ -28,18 +28,12 @@ export default function Home() {
                 Connect with elite financial advisors who specialize in tax-efficient strategies for investors with $1M+ in assets. The 2026 tax deadline is approaching—don't leave six figures on the table.
               </p>
 
-              <div className="mb-8 flex flex-wrap gap-4">
+              <div className="mb-8">
                 <Link
                   href="/quiz"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#C13741] px-8 py-4 text-lg font-semibold text-white shadow-xl hover:bg-[#D94651] transition-all"
                 >
                   Find My Tax Advisor
-                </Link>
-                <Link
-                  href="/advisor"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#1E3A5F] px-8 py-4 text-lg font-semibold text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white transition-all"
-                >
-                  Learn About 2026 Deadline
                 </Link>
               </div>
 

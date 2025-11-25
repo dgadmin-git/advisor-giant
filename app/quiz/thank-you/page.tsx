@@ -1,21 +1,11 @@
 import Image from "next/image";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#F0F4F8]">
-      <header className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-4">
-          <a href="/">
-            <Image
-              src="/logo.webp"
-              alt="Advisor Giant"
-              width={200}
-              height={50}
-              className="h-auto w-40"
-            />
-          </a>
-        </div>
-      </header>
+      <Header />
 
       <div className="mx-auto max-w-3xl px-6 py-12">
         <div className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-xl text-center sm:p-12">
@@ -76,6 +66,8 @@ export default function ThankYouPage() {
           </a>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

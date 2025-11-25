@@ -1,29 +1,12 @@
 import Image from "next/image";
 import AdvisorForm from "../components/AdvisorForm";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function ConsumerPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Editorial Header */}
-      <header className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-4">
-          <div className="flex items-center justify-between">
-            <a href="/">
-              <Image
-                src="/logo.webp"
-                alt="Advisor Giant"
-                width={240}
-                height={60}
-                priority
-                className="h-auto w-48"
-              />
-            </a>
-            <time dateTime="2025-01-15" className="text-sm text-zinc-600">
-              January 15, 2025
-            </time>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content with Sidebar Layout */}
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -307,56 +290,7 @@ export default function ConsumerPage() {
         </div>
       </div>
 
-      {/* Minimal Footer */}
-      <footer className="border-t border-zinc-200 bg-[#F0F4F8]">
-        <div className="mx-auto max-w-7xl px-6 py-12">
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="/logo.png"
-              alt="Advisor Giant"
-              width={200}
-              height={50}
-              className="h-auto w-40 opacity-90"
-            />
-          </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:gap-16">
-            <div>
-              <h3 className="text-sm font-semibold text-[#1E3A5F]">Network</h3>
-              <ul className="mt-4 space-y-2">
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Join Now</a></li>
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Member Benefits</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-[#1E3A5F]">Resources</h3>
-              <ul className="mt-4 space-y-2">
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Success Stories</a></li>
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Research</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-[#1E3A5F]">Legal</h3>
-              <ul className="mt-4 space-y-2">
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Privacy</a></li>
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Terms</a></li>
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Disclosures</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-[#1E3A5F]">Contact</h3>
-              <ul className="mt-4 space-y-2">
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">Support</a></li>
-                <li><a href="#" className="text-sm text-zinc-600 hover:text-[#C13741]">About Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 border-t border-zinc-300 pt-8">
-            <p className="text-center text-xs text-zinc-600">
-              © 2025 Advisor Giant. Private Network for High-Net-Worth Investors. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

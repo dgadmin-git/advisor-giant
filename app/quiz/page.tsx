@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 type FormData = {
   hasAdvisor: string;
@@ -160,19 +162,7 @@ export default function QuizPage() {
   if (showLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-white to-[#F0F4F8]">
-        <header className="border-b border-zinc-200 bg-white">
-          <div className="mx-auto max-w-7xl px-6 py-4">
-            <a href="/">
-              <Image
-                src="/logo.webp"
-                alt="Advisor Giant"
-                width={200}
-                height={50}
-                className="h-auto w-40"
-              />
-            </a>
-          </div>
-        </header>
+        <Header />
 
         <div className="mx-auto max-w-3xl px-6 py-12">
           <div className="mb-8">
@@ -223,20 +213,7 @@ export default function QuizPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#F0F4F8]">
-      {/* Header */}
-      <header className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-4">
-          <a href="/">
-            <Image
-              src="/logo.webp"
-              alt="Advisor Giant"
-              width={200}
-              height={50}
-              className="h-auto w-40"
-            />
-          </a>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <div className="mx-auto max-w-3xl px-6 py-12">
@@ -619,6 +596,8 @@ export default function QuizPage() {
           )}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

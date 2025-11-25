@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type FormData = {
   hasAdvisor: string;
@@ -33,6 +33,34 @@ export default function QuizPage() {
   });
 
   const totalSteps = 8;
+
+  // Browser back button support
+  useEffect(() => {
+    // Push initial state
+    if (typeof window !== 'undefined') {
+      window.history.replaceState({ step: currentStep }, '', window.location.href);
+    }
+
+    const handlePopState = (event: PopStateEvent) => {
+      if (event.state && event.state.step) {
+        setCurrentStep(event.state.step);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // If no state, go back to step 1
+        setCurrentStep(1);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update history state when step changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && currentStep > 0) {
+      window.history.pushState({ step: currentStep }, '', window.location.href);
+    }
+  }, [currentStep]);
 
   const updateFormData = (field: keyof FormData, value: string, autoAdvance: boolean = false) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -107,11 +135,11 @@ export default function QuizPage() {
           formType: 'quiz-completion',
           source: 'Advisor Quiz',
           quizData: {
-            has_advisor: formData.hasAdvisor,
-            age: formData.age,
-            retirement_plan: formData.retirementPlan,
-            business_owner: formData.businessOwner,
-            investable_assets: formData.investableAssets,
+            do_you_currently_have_a_financial_advisor: formData.hasAdvisor,
+            how_old_are_you: formData.age,
+            when_do_you_plan_to_retire: formData.retirementPlan,
+            are_you_a_business_owner: formData.businessOwner,
+            please_estimate_your_total_investable_assets: formData.investableAssets,
             zip_code: formData.zipCode
           }
         }),
@@ -120,11 +148,9 @@ export default function QuizPage() {
       if (response.ok) {
         alert('Thank you! We are matching you with financial advisors.');
       } else {
-        console.error('Failed to submit quiz');
         alert('Thank you! We are matching you with financial advisors.');
       }
     } catch (error) {
-      console.error('Quiz submission error:', error);
       alert('Thank you! We are matching you with financial advisors.');
     }
   };

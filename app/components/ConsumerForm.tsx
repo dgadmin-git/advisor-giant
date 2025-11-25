@@ -19,12 +19,6 @@ export default function ConsumerForm() {
     setSubmitStatus('idle');
 
     try {
-      console.log('Submitting form data:', {
-        ...formData,
-        formType: 'consumer-page',
-        source: 'Consumer Private Network Page'
-      });
-
       const response = await fetch('/api/submit', {
         method: 'POST',
         headers: {
@@ -37,16 +31,9 @@ export default function ConsumerForm() {
         }),
       });
 
-      console.log('Response status:', response.status, response.statusText);
-
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-        console.error('API Error Response:', errorData);
-        throw new Error(`Failed to submit: ${JSON.stringify(errorData)}`);
+        throw new Error('Failed to submit form');
       }
-
-      const result = await response.json();
-      console.log('Success response:', result);
 
       setSubmitStatus('success');
       setFormData({
@@ -60,7 +47,6 @@ export default function ConsumerForm() {
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
-      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

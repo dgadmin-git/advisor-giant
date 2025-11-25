@@ -8,14 +8,6 @@ export async function POST(request: NextRequest) {
     const apiToken = (process.env.GHL_API_TOKEN || '').trim();
     const locationId = (process.env.GHL_LOCATION_ID || '').trim();
 
-    console.log('Environment check:', {
-      hasToken: !!apiToken,
-      tokenPrefix: apiToken?.substring(0, 10),
-      hasLocationId: !!locationId,
-      locationId: locationId,
-      usingFallback: !process.env.GHL_API_TOKEN
-    });
-
     if (!apiToken || !locationId) {
       return NextResponse.json(
         { error: 'GHL credentials not configured' },
@@ -81,9 +73,6 @@ export async function POST(request: NextRequest) {
       contactData.customFields = customFields;
     }
 
-    // Log the payload being sent (for debugging)
-    console.log('Submitting to GHL:', JSON.stringify(contactData, null, 2));
-
     // Submit to GoHighLevel
     const response = await fetch('https://services.leadconnectorhq.com/contacts/', {
       method: 'POST',
@@ -97,11 +86,6 @@ export async function POST(request: NextRequest) {
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error('GHL API Error Response:', {
-        status: response.status,
-        statusText: response.statusText,
-        body: errorData
-      });
       return NextResponse.json(
         { error: 'Failed to submit to GHL', details: errorData, status: response.status },
         { status: response.status }
@@ -117,7 +101,6 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Error submitting to GHL:', error);
     return NextResponse.json(
       { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }

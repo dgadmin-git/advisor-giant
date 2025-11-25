@@ -7,6 +7,7 @@ export default function AdvisorForm() {
     name: '',
     email: '',
     phone: '',
+    aum: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,6 +53,7 @@ export default function AdvisorForm() {
         name: '',
         email: '',
         phone: '',
+        aum: '',
         message: ''
       });
 
@@ -136,6 +138,25 @@ export default function AdvisorForm() {
             className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
             placeholder="(555) 123-4567"
           />
+        </div>
+        <div>
+          <label htmlFor="aum" className="block text-sm font-medium text-zinc-700 mb-1">
+            Assets Under Management
+          </label>
+          <select
+            id="aum"
+            name="aum"
+            value={formData.aum}
+            onChange={handleChange}
+            className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
+          >
+            <option value="">Select range</option>
+            <option value="0-10m">$0 - $10M</option>
+            <option value="10m-50m">$10M - $50M</option>
+            <option value="50m-100m">$50M - $100M</option>
+            <option value="100m-500m">$100M - $500M</option>
+            <option value="500m+">$500M+</option>
+          </select>
         </div>
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-zinc-700 mb-1">

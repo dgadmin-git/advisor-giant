@@ -7,6 +7,13 @@ export async function POST(request: NextRequest) {
     const apiToken = process.env.GHL_API_TOKEN;
     const locationId = process.env.GHL_LOCATION_ID;
 
+    console.log('Environment check:', {
+      hasToken: !!apiToken,
+      tokenPrefix: apiToken?.substring(0, 10),
+      hasLocationId: !!locationId,
+      locationId: locationId
+    });
+
     if (!apiToken || !locationId) {
       return NextResponse.json(
         { error: 'GHL credentials not configured' },

@@ -4,9 +4,9 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    // Temporarily hardcoded for debugging - will revert to env vars
-    const apiToken = process.env.GHL_API_TOKEN || 'pit-fd8d88a1-3c78-43fb-a584-deb69a4399cf';
-    const locationId = process.env.GHL_LOCATION_ID || 'o6N7zox1OBodlYhoPCuR';
+    // Trim to remove any whitespace/newlines from environment variables
+    const apiToken = (process.env.GHL_API_TOKEN || '').trim();
+    const locationId = (process.env.GHL_LOCATION_ID || '').trim();
 
     console.log('Environment check:', {
       hasToken: !!apiToken,

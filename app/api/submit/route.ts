@@ -4,14 +4,16 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    const apiToken = process.env.GHL_API_TOKEN;
-    const locationId = process.env.GHL_LOCATION_ID;
+    // Temporarily hardcoded for debugging - will revert to env vars
+    const apiToken = process.env.GHL_API_TOKEN || 'pit-fd8d88a1-3c78-43fb-a584-deb69a4399cf';
+    const locationId = process.env.GHL_LOCATION_ID || 'o6N7zox1OBodlYhoPCuR';
 
     console.log('Environment check:', {
       hasToken: !!apiToken,
       tokenPrefix: apiToken?.substring(0, 10),
       hasLocationId: !!locationId,
-      locationId: locationId
+      locationId: locationId,
+      usingFallback: !process.env.GHL_API_TOKEN
     });
 
     if (!apiToken || !locationId) {

@@ -9,7 +9,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-zinc-50 to-white py-20 lg:py-32">
+      <section className="relative bg-gradient-to-br from-zinc-50 to-white py-10 lg:py-16">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}

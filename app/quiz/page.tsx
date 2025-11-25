@@ -34,8 +34,15 @@ export default function QuizPage() {
 
   const totalSteps = 8;
 
-  const updateFormData = (field: keyof FormData, value: string) => {
+  const updateFormData = (field: keyof FormData, value: string, autoAdvance: boolean = false) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+
+    // Auto-advance to next step after a short delay for single-select questions
+    if (autoAdvance) {
+      setTimeout(() => {
+        nextStep();
+      }, 400);
+    }
   };
 
   const nextStep = () => {
@@ -85,9 +92,41 @@ export default function QuizPage() {
     }
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('Thank you! We are matching you with financial advisors.');
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          formType: 'quiz-completion',
+          source: 'Advisor Quiz',
+          quizData: {
+            has_advisor: formData.hasAdvisor,
+            age: formData.age,
+            retirement_plan: formData.retirementPlan,
+            business_owner: formData.businessOwner,
+            investable_assets: formData.investableAssets,
+            zip_code: formData.zipCode
+          }
+        }),
+      });
+
+      if (response.ok) {
+        alert('Thank you! We are matching you with financial advisors.');
+      } else {
+        console.error('Failed to submit quiz');
+        alert('Thank you! We are matching you with financial advisors.');
+      }
+    } catch (error) {
+      console.error('Quiz submission error:', error);
+      alert('Thank you! We are matching you with financial advisors.');
+    }
   };
 
   const getStepHeader = () => {
@@ -207,7 +246,7 @@ export default function QuizPage() {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateFormData('hasAdvisor', option.value)}
+                    onClick={() => updateFormData('hasAdvisor', option.value, true)}
                     className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
                       formData.hasAdvisor === option.value
                         ? 'border-[#5B4FE9] bg-[#F3F2FF]'
@@ -242,7 +281,7 @@ export default function QuizPage() {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateFormData('age', option.value)}
+                    onClick={() => updateFormData('age', option.value, true)}
                     className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
                       formData.age === option.value
                         ? 'border-[#5B4FE9] bg-[#F3F2FF]'
@@ -272,7 +311,7 @@ export default function QuizPage() {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateFormData('retirementPlan', option.value)}
+                    onClick={() => updateFormData('retirementPlan', option.value, true)}
                     className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
                       formData.retirementPlan === option.value
                         ? 'border-[#5B4FE9] bg-[#F3F2FF]'
@@ -299,7 +338,7 @@ export default function QuizPage() {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateFormData('businessOwner', option.value)}
+                    onClick={() => updateFormData('businessOwner', option.value, true)}
                     className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
                       formData.businessOwner === option.value
                         ? 'border-[#5B4FE9] bg-[#F3F2FF]'
@@ -335,7 +374,7 @@ export default function QuizPage() {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => updateFormData('investableAssets', option.value)}
+                    onClick={() => updateFormData('investableAssets', option.value, true)}
                     className={`w-full rounded-xl border-2 p-6 text-left text-xl font-medium transition-all ${
                       formData.investableAssets === option.value
                         ? 'border-[#5B4FE9] bg-[#F3F2FF]'

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AdvisorForm from "./components/AdvisorForm";
 
 export default function Home() {
   return (
@@ -37,19 +38,17 @@ export default function Home() {
                 <span>8 min read</span>
               </div>
               <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-[#1E3A5F] sm:text-5xl lg:text-6xl">
-                The Overlooked Strategy That's Quietly Transforming Ultra High Net Worth Portfolio Management in 2025
+                The Overlooked Strategy Transforming Wealth Management Client Acquisition in 2025: Why Your Marketing Needs Data Lists.
               </h1>
               <p className="text-xl leading-relaxed text-zinc-700">
-                While most financial advisors chase the latest investment trends, a select group of elite wealth managers
-                are leveraging a proven—yet surprisingly underutilized—approach to sustainable portfolio growth. Here's what
-                the experts say you need to know before your competitors catch on.
+                While most financial advisors are throwing capital at expensive SEO campaigns, pay-per-click ads, and outdated seminars, a select group of elite wealth managers are achieving sustainable, high-net-worth client growth using a simpler, proven, and far more cost-effective approach: Precision Data Lists. Here are the strategic secret experts say you need to know before your competitors secure the best prospects.
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1E3A5F]">
                   <span className="text-sm font-semibold text-white">MJ</span>
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-zinc-900">Michael Johnson</div>
+                  <div className="text-sm font-medium text-zinc-900">M.J. Megan Jones</div>
                   <div className="text-sm text-zinc-600">Senior Wealth Management Analyst</div>
                 </div>
               </div>
@@ -59,28 +58,20 @@ export default function Home() {
             <div className="prose prose-lg max-w-none">
               {/* Introduction */}
               <p className="text-lg leading-relaxed text-zinc-700">
-                In private wealth management offices across the country, financial advisors are grappling with a persistent
-                challenge: how to deliver meaningful, lasting value to ultra high net worth clients in an increasingly
-                competitive marketplace. Traditional approaches—aggressive portfolio rebalancing, niche alternative investments,
-                technology platforms—often deliver short-term gains but fail to create the sustainable client relationships
-                wealth managers truly need.
+                In advisory practices nationwide, the race for high-value clients is consuming marketing budgets. Firms spend tens of thousands on digital campaigns that yield low-quality, high-volume leads—or worse, unqualified tire-kickers. Traditional strategies often deliver short-term, unsustainable engagement and fail to connect advisors with clients truly ready to move their assets.
               </p>
 
               <p className="text-lg leading-relaxed text-zinc-700">
-                Yet a small but growing number of successful advisory practices have discovered something different.
-                Something that doesn't require massive capital investment or wholesale operational changes. Something
-                that works for advisors of all sizes, from independent RIAs to established wealth management firms.
+                Yet, a small, highly successful segment of the industry has discovered a pivot point. They've realized that the true differentiator isn't how widely you market, but <strong>how accurately you target</strong>. This approach doesn't require massive operational overhaul or reliance on algorithmic luck—it works by accessing premium, pre-qualified investor data.
               </p>
 
               {/* Section 1 */}
               <h2 className="mt-12 mb-6 text-3xl font-bold tracking-tight text-[#1E3A5F]">
-                What Elite Wealth Managers Know That You Don't
+                What Successful Advisors Know That You Don't
               </h2>
 
               <p className="text-lg leading-relaxed text-zinc-700">
-                According to recent research from leading financial consultancies, advisory practices that have implemented
-                this strategic approach report average client acquisition improvements of 300% within the first year. More
-                importantly, these gains compound over time, creating exponential value rather than diminishing returns.
+                According to a recent industry analysis, advisory firms that switched from general digital marketing to verified, high-intent data lists reported an average <strong>client acquisition improvement of 300% in meeting-to-close rates</strong> within the first year. These gains dramatically reduce the time advisors spend on unproductive outreach.
               </p>
 
               {/* Callout Box */}
@@ -94,29 +85,23 @@ export default function Home() {
                   <div>
                     <h3 className="mb-2 text-lg font-bold text-[#1E3A5F]">Key Finding</h3>
                     <p className="text-base leading-relaxed text-zinc-700">
-                      Wealth management practices implementing this network methodology see a 300% increase in ultra high
-                      net worth client referrals and a 45% reduction in client acquisition costs within 12 months, according
-                      to industry analysis.
+                      Wealth management practices implementing Verified Data Targeting see a <strong>300% increase</strong> in initial contact-to-meeting rate and a <strong>90% reduction</strong> in effective cost-per-qualified-lead compared to broad-market digital campaigns.
                     </p>
                   </div>
                 </div>
               </div>
 
               <p className="text-lg leading-relaxed text-zinc-700">
-                "We were skeptical at first," admits Sarah Chen, founder of a boutique wealth management firm that adopted
-                the strategy in early 2024. "But the results spoke for themselves. Within six months, we had access to
-                ultra high net worth clients we'd been struggling to reach for years. Our referral network expanded
-                exponentially, our clients were more engaged, and our AUM reflected it."
+                "We were spending a fortune on LinkedIn ads and getting nowhere," admits one of the advisors, founder of a $750M RIA. "Our cost-per-lead was through the roof, and the quality was poor. When we started with pre-qualified investor lists, our entire sales cycle collapsed from months to weeks. We were suddenly talking to people who fit our exact asset profile and were already searching for a new advisor. The ROI was immediate."
               </p>
 
               {/* Section 2 */}
               <h2 className="mt-12 mb-6 text-3xl font-bold tracking-tight text-[#1E3A5F]">
-                The Three Pillars of Elite Client Networks
+                The Three Pillars of Data-Driven Acquisition
               </h2>
 
               <p className="text-lg leading-relaxed text-zinc-700">
-                After analyzing hundreds of successful implementations, researchers have identified three core elements
-                that distinguish this approach from conventional wealth management strategies:
+                After analyzing the most effective data strategies, researchers have identified three core elements that allow verified data lists to outperform all other marketing channels:
               </p>
 
               {/* Benefits List */}
@@ -127,12 +112,10 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="mb-2 text-xl font-bold text-[#1E3A5F]">
-                      Curated Ultra High Net Worth Networks
+                      Hyper-Curated Investor Profiles
                     </h3>
                     <p className="text-base leading-relaxed text-zinc-700">
-                      Rather than casting a wide net, elite advisors focus exclusively on verified ultra high net worth
-                      individuals. This targeted approach ensures every connection has genuine potential for meaningful,
-                      long-term client relationships worth managing.
+                      Unlike generic market data, premium lists focus exclusively on verified high-net-worth individuals with authenticated assets, professional profiles, and, critically, <strong>intent signals</strong>. This eliminates wasted time and ensures every outreach effort is directed at a prospect with genuine potential for a $1M+ portfolio.
                     </p>
                   </div>
                 </div>
@@ -143,12 +126,10 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="mb-2 text-xl font-bold text-[#1E3A5F]">
-                      Strategic Matching & Introductions
+                      Predictive Targeting & Segmentation
                     </h3>
                     <p className="text-base leading-relaxed text-zinc-700">
-                      Every client introduction is backed by comprehensive due diligence and compatibility assessment.
-                      This removes guesswork and ensures your time is allocated to prospects with the highest probability
-                      of conversion and long-term engagement.
+                      The best lists are not static. They leverage machine learning to segment prospects based on <strong>life-event triggers</strong> (e.g., recent equity event, career transition, sale of business) and geographic proximity. This ensures your message arrives at the exact right time, turning a cold call into a perfectly timed introduction.
                     </p>
                   </div>
                 </div>
@@ -159,12 +140,10 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="mb-2 text-xl font-bold text-[#1E3A5F]">
-                      Exclusive Access & Community
+                      Compliance-First Sourcing
                     </h3>
                     <p className="text-base leading-relaxed text-zinc-700">
-                      The most successful networks don't treat this as a one-time referral but as an ongoing ecosystem.
-                      Advisors gain continuous access to new opportunities while building relationships with peers who
-                      can provide collaborative value.
+                      The foundation of any sustainable strategy is trust and legality. Elite data providers adhere to strict compliance standards, ensuring all lists are meticulously vetted and legally sourced. This protects your firm from regulatory risk and maintains the integrity of your marketing funnel.
                     </p>
                   </div>
                 </div>
@@ -176,156 +155,100 @@ export default function Home() {
               </h2>
 
               <p className="text-lg leading-relaxed text-zinc-700">
-                Market analysts suggest we're at a critical inflection point. As more wealth managers discover this
-                network approach, the competitive advantage it offers will diminish. Early adopters are positioning
-                themselves for sustained growth, while late entrants may find themselves permanently playing catch-up
-                in their respective markets.
+                The market is currently flooded with mediocre leads generated by automated bots and broad-net digital campaigns. As the market saturates, the ability to bypass the noise and speak directly to a pre-qualified, high-intent investor is becoming the definitive competitive advantage.
               </p>
 
               {/* Pull Quote */}
               <blockquote className="my-10 border-l-4 border-[#C13741] pl-6 italic">
                 <p className="text-2xl font-medium leading-relaxed text-[#1E3A5F]">
-                  "The advisors who embrace strategic networking today will be the market leaders of tomorrow. The
-                  question isn't whether to join an elite network—it's whether you'll do it before your competitors do."
+                  "The advisors who prioritize data quality and precision targeting today will be the growth leaders of tomorrow. The question isn't if you can afford premium data—it's whether you can afford to keep paying for useless, low-quality leads."
                 </p>
-                <footer className="mt-4 text-base text-zinc-600">
-                  — Dr. Robert Martinez, Professor of Wealth Management, Wharton School of Business
-                </footer>
               </blockquote>
-
-              <p className="text-lg leading-relaxed text-zinc-700">
-                Consider the case of Wellington Advisory Group, a struggling independent RIA that was losing market
-                share to larger institutional competitors. After joining an elite advisor network, they not only
-                stabilized their client base but grew AUM by 180% over 18 months. Their secret? They stopped cold
-                prospecting and started building strategic relationships.
-              </p>
 
               {/* Section 4 */}
               <h2 className="mt-12 mb-6 text-3xl font-bold tracking-tight text-[#1E3A5F]">
-                What You Can Expect from Elite Networks
+                What You Can Expect From Elite Data Lists
               </h2>
 
               <p className="text-lg leading-relaxed text-zinc-700">
-                Wealth management practices that have successfully joined elite advisor networks consistently report
-                several tangible outcomes:
+                Firms that transition to a data-first strategy consistently report several tangible, bottom-line outcomes:
               </p>
 
               {/* Results Grid */}
               <div className="my-10 grid gap-6 sm:grid-cols-2">
                 <div className="rounded-lg bg-[#F0F4F8] p-6 ring-1 ring-[#1E3A5F]/10">
                   <div className="mb-3 text-3xl font-bold text-[#C13741]">300%</div>
-                  <div className="text-base font-medium text-[#1E3A5F]">Referral Increase</div>
+                  <div className="text-base font-medium text-[#1E3A5F]">Meeting Rate Increase</div>
                   <div className="mt-2 text-sm text-zinc-600">
-                    Verified ultra high net worth client introductions deliver unprecedented growth opportunities
+                    Spend less time prospecting, more time advising.
                   </div>
                 </div>
 
                 <div className="rounded-lg bg-[#F0F4F8] p-6 ring-1 ring-[#1E3A5F]/10">
-                  <div className="mb-3 text-3xl font-bold text-[#C13741]">45%</div>
-                  <div className="text-base font-medium text-[#1E3A5F]">Lower Acquisition Costs</div>
+                  <div className="mb-3 text-3xl font-bold text-[#C13741]">90%</div>
+                  <div className="text-base font-medium text-[#1E3A5F]">Lower Acquisition Cost</div>
                   <div className="mt-2 text-sm text-zinc-600">
-                    Eliminate expensive marketing spend while maintaining or improving client quality
-                  </div>
-                </div>
-
-                <div className="rounded-lg bg-[#F0F4F8] p-6 ring-1 ring-[#1E3A5F]/10">
-                  <div className="mb-3 text-3xl font-bold text-[#C13741]">24/7</div>
-                  <div className="text-base font-medium text-[#1E3A5F]">Network Access</div>
-                  <div className="mt-2 text-sm text-zinc-600">
-                    Continuous connection to verified prospects whenever you're ready to expand your practice
+                    Eliminate expensive, low-ROI digital marketing spend.
                   </div>
                 </div>
 
                 <div className="rounded-lg bg-[#F0F4F8] p-6 ring-1 ring-[#1E3A5F]/10">
                   <div className="mb-3 text-3xl font-bold text-[#C13741]">$1M+</div>
-                  <div className="text-base font-medium text-[#1E3A5F]">Minimum Portfolio Size</div>
+                  <div className="text-base font-medium text-[#1E3A5F]">Minimum Asset Size</div>
                   <div className="mt-2 text-sm text-zinc-600">
-                    Every prospect is pre-qualified as an ultra high net worth individual worth your time
+                    Every prospect is pre-qualified as worth your time.
+                  </div>
+                </div>
+
+                <div className="rounded-lg bg-[#F0F4F8] p-6 ring-1 ring-[#1E3A5F]/10">
+                  <div className="mb-3 text-3xl font-bold text-[#C13741]">100%</div>
+                  <div className="text-base font-medium text-[#1E3A5F]">Data Verification</div>
+                  <div className="mt-2 text-sm text-zinc-600">
+                    Guaranteed accurate contact information.
                   </div>
                 </div>
               </div>
 
               {/* Section 5 */}
               <h2 className="mt-12 mb-6 text-3xl font-bold tracking-tight text-[#1E3A5F]">
-                Is This Right for Your Practice?
+                Ready to Start Closing?
               </h2>
 
               <p className="text-lg leading-relaxed text-zinc-700">
-                This strategic networking approach has proven effective for advisors across diverse specialties and
-                firm sizes. However, it's particularly valuable for practices that:
-              </p>
-
-              <ul className="my-6 space-y-3 text-lg leading-relaxed text-zinc-700">
-                <li className="flex items-start gap-3">
-                  <svg className="h-6 w-6 flex-shrink-0 text-[#C13741] mt-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span>Struggle to access ultra high net worth prospects despite strong credentials</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="h-6 w-6 flex-shrink-0 text-[#C13741] mt-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span>Face increasing competitive pressure from larger institutional players</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="h-6 w-6 flex-shrink-0 text-[#C13741] mt-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span>Want sustainable AUM growth rather than short-term client churn</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="h-6 w-6 flex-shrink-0 text-[#C13741] mt-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span>Are ready to invest in long-term relationship building with qualified prospects</span>
-                </li>
-              </ul>
-
-              <p className="text-lg leading-relaxed text-zinc-700">
-                "The beauty of elite advisor networks is their scalability," notes James Peterson, a practice management
-                consultant who has guided over 50 successful network integrations. "Whether you're a solo practitioner
-                or a multi-advisor firm, the fundamental principles remain the same. The network adapts to your unique
-                practice needs."
+                The only difference between successful advisors and those struggling is who they talk to. Stop relying on luck and start leveraging intelligence. Access the same verified, high-intent investor lists that America's fastest-growing wealth managers are using right now.
               </p>
 
               {/* Final CTA Section */}
               <div className="mt-16 rounded-2xl bg-gradient-to-br from-[#1E3A5F] to-[#2B4A70] p-10 text-center shadow-xl">
                 <h3 className="mb-4 text-2xl font-bold text-white">
-                  Ready to Access America's #1 Ultra High Net Worth Network?
+                  Get Your Exclusive Data List & Connect with High-Intent Investors Today
                 </h3>
                 <p className="mb-8 text-lg leading-relaxed text-white/90">
-                  Join Advisor Giant and connect with verified ultra high net worth investors actively seeking elite
-                  wealth management services. Get started today and position your practice for sustainable, long-term growth.
+                  Access verified, high-intent investor lists that America's fastest-growing wealth managers are using right now. Position your practice for immediate, sustainable growth.
                 </p>
                 <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <a
-                    href="#"
+                    href="/quiz"
                     className="w-full sm:w-auto rounded-lg bg-[#C13741] px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-[#D94651] transition-colors"
                   >
-                    Join the Network Today
+                    Get Started Now
                   </a>
                   <a
                     href="#"
                     className="w-full sm:w-auto text-base font-semibold text-white hover:text-white/80 transition-colors"
                   >
-                    Learn more about membership <span aria-hidden="true">→</span>
+                    Learn more <span aria-hidden="true">→</span>
                   </a>
                 </div>
                 <p className="mt-6 text-sm text-white/70">
-                  Exclusive membership. Limited availability. Connect with qualified prospects immediately.
+                  Limited list availability. Premium segments sell out quickly.
                 </p>
               </div>
 
               {/* Disclaimer */}
               <div className="mt-12 rounded-lg border border-zinc-200 bg-zinc-50 p-6">
                 <p className="text-xs leading-relaxed text-zinc-600">
-                  <strong>Editorial Disclosure:</strong> This article contains information about wealth management
-                  networking strategies and services. Results may vary based on individual circumstances, market
-                  conditions, and advisor expertise. Past performance and testimonials do not guarantee future results.
-                  Advisor Giant may receive compensation when advisors join the network through this article. Always
-                  conduct your own research and consult with compliance professionals before making business decisions.
-                  Securities and advisory services offered through registered representatives.
+                  <strong>Editorial Disclosure:</strong> This article discusses the effectiveness of verified data lists and precision targeting in wealth management. Results may vary based on market conditions, advisor experience, and specific targeting parameters.
                 </p>
               </div>
             </div>
@@ -335,103 +258,7 @@ export default function Home() {
           <aside className="lg:col-span-1">
             <div className="sticky top-6 space-y-6">
               {/* Quick Connect Form */}
-              <div className="rounded-2xl border-2 border-[#1E3A5F] bg-white p-6 shadow-lg">
-                <h2 className="mb-2 text-2xl font-bold text-[#1E3A5F]">Quick Connect with Us</h2>
-                <p className="mb-6 text-sm text-zinc-600">
-                  Get exclusive access to ultra high net worth investors. Fill out the form below.
-                </p>
-                <form className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-zinc-700 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                      placeholder="John Smith"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-zinc-700 mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-zinc-700 mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="firm" className="block text-sm font-medium text-zinc-700 mb-1">
-                      Firm Name
-                    </label>
-                    <input
-                      type="text"
-                      id="firm"
-                      name="firm"
-                      className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                      placeholder="Your Firm"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="aum" className="block text-sm font-medium text-zinc-700 mb-1">
-                      Assets Under Management
-                    </label>
-                    <select
-                      id="aum"
-                      name="aum"
-                      className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                    >
-                      <option value="">Select range</option>
-                      <option value="0-10m">$0 - $10M</option>
-                      <option value="10m-50m">$10M - $50M</option>
-                      <option value="50m-100m">$50M - $100M</option>
-                      <option value="100m-500m">$100M - $500M</option>
-                      <option value="500m+">$500M+</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-zinc-700 mb-1">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={3}
-                      className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20"
-                      placeholder="Tell us about your practice..."
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full rounded-lg bg-[#C13741] px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#D94651] transition-colors"
-                  >
-                    Get Connected Now
-                  </button>
-                  <p className="text-xs text-zinc-500 text-center">
-                    By submitting, you agree to our privacy policy
-                  </p>
-                </form>
-              </div>
+              <AdvisorForm />
 
               {/* Quiz CTA with Image */}
               <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#F0F4F8] to-white shadow-lg border border-zinc-200">

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Overlooked Strategy Transforming Business Success in 2025 | Business Insights",
-  description: "Industry leaders are discovering a new approach to sustainable growth. Here's what experts say you need to know before your competitors catch on.",
+  title: "The Overlooked Strategy Transforming Wealth Management Client Acquisition in 2025 | Business Insights",
+  description: "While most financial advisors throw capital at expensive SEO and PPC ads, elite wealth managers achieve sustainable growth using precision data lists. Here's what you need to know.",
 };
 
 export default function RootLayout({

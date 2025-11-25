@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
 
     if (body.aum) {
       customFields.push({
-        key: 'aum',
+        key: 'assets_under_management',
         field_value: body.aum
       });
     }

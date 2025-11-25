@@ -312,7 +312,7 @@ export default function ConsumerPage() {
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="mb-8 flex justify-center">
             <Image
-              src="/logo.webp"
+              src="/logo.png"
               alt="Advisor Giant"
               width={200}
               height={50}

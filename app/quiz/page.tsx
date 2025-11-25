@@ -164,7 +164,7 @@ export default function QuizPage() {
           <div className="mx-auto max-w-7xl px-6 py-4">
             <a href="/">
               <Image
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Advisor Giant"
                 width={200}
                 height={50}
@@ -228,7 +228,7 @@ export default function QuizPage() {
         <div className="mx-auto max-w-7xl px-6 py-4">
           <a href="/">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Advisor Giant"
               width={200}
               height={50}

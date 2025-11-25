@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -8,13 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Column 1 */}
           <div>
-            <Image
-              src="/logo.webp"
-              alt="Advisor Giant"
-              width={160}
-              height={40}
-              className="h-auto w-32 mb-4"
-            />
+            <h3 className="text-2xl font-bold text-white mb-4">AdvisorGiant</h3>
             <p className="text-sm text-zinc-300">
               Connecting High Net Worth Investors With Elite Tax Strategy Specialists
             </p>

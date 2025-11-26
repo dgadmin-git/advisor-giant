@@ -5,15 +5,15 @@ export default function Header() {
   return (
     <nav className="bg-[#091c3d] sticky top-0 z-50 shadow-lg">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-24 items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.webp"
               alt="Advisor Giant"
-              width={200}
-              height={50}
+              width={280}
+              height={70}
               priority
-              className="h-auto w-40"
+              className="h-auto w-56"
             />
           </Link>
           <div className="hidden md:flex items-center gap-8">

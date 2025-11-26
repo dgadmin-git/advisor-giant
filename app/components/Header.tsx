@@ -10,10 +10,11 @@ export default function Header() {
             <Image
               src="/logo.webp"
               alt="Advisor Giant"
-              width={280}
-              height={70}
+              width={270}
+              height={68}
               priority
-              className="h-auto w-56"
+              className="h-auto"
+              style={{ width: '270px' }}
             />
           </Link>
           <div className="hidden md:flex items-center gap-8">

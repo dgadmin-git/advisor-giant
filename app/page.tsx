@@ -25,7 +25,7 @@ export default function Home() {
               </h1>
 
               <p className="mb-8 text-lg leading-relaxed text-zinc-700">
-                Connect with elite financial advisors who specialize in tax-efficient strategies for investors with $1M+ in assets. The 2026 tax deadline is approaching—don't leave six figures on the table.
+                Connect with elite financial advisors who specialize in retirement planning strategies for investors with $1M+ in assets. The 2026 tax deadline is approaching—don't leave six figures on the table.
               </p>
 
               <div className="mb-8">
@@ -97,7 +97,7 @@ export default function Home() {
               href="/quiz"
               className="flex-shrink-0 rounded-lg bg-white px-6 py-3 text-[#C13741] font-semibold hover:bg-zinc-100 transition-colors shadow-lg whitespace-nowrap"
             >
-              Calculate My Tax Savings
+              Calculate My Retirement Savings
             </Link>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function Home() {
               Why High Net Worth Investors Choose AdvisorGiant
             </h2>
             <p className="text-xl text-zinc-600 max-w-3xl mx-auto">
-              We're not a general financial advisor directory. We specialize exclusively in connecting investors with $1M+ in assets to advisors who understand high net worth tax planning.
+              We're not a general financial advisor directory. We specialize exclusively in connecting investors with $1M+ in assets to advisors who understand high net worth retirement planning.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export default function Home() {
             {/* Stat 2 */}
             <div className="text-center">
               <div className="mb-4 text-5xl font-bold text-[#C13741]">$247K</div>
-              <div className="text-lg font-medium text-[#1E3A5F]">Average Tax Savings for Our Clients</div>
+              <div className="text-lg font-medium text-[#1E3A5F]">Average Retirement Savings for Our Clients</div>
             </div>
 
             {/* Stat 3 */}

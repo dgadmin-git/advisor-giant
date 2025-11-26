@@ -33,7 +33,7 @@ export default function Home() {
                   href="/quiz"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#C13741] px-8 py-4 text-lg font-semibold text-white shadow-xl hover:bg-[#D94651] transition-all"
                 >
-                  Find My Tax Advisor
+                  Find My Financial Advisor
                 </Link>
               </div>
 

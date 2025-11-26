@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">AdvisorGiant</h3>
             <p className="text-sm text-zinc-300">
-              Connecting High Net Worth Investors With Elite Tax Strategy Specialists
+              Connecting High Net Worth Investors With Elite Financial Advisors
             </p>
           </div>
 

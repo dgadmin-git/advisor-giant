@@ -115,9 +115,9 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-400">
             <p>© 2025 AdvisorGiant. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Form ADV</a>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>
+              <Link href="/do-not-sell" className="hover:text-white transition-colors">Do Not Sell</Link>
             </div>
           </div>
         </div>

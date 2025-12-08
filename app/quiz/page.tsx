@@ -17,6 +17,8 @@ type FormData = {
   lastName: string;
   email: string;
   phone: string;
+  consentTCPA: boolean;
+  consentPrivacy: boolean;
 };
 
 export default function QuizPage() {
@@ -34,6 +36,8 @@ export default function QuizPage() {
     lastName: '',
     email: '',
     phone: '',
+    consentTCPA: false,
+    consentPrivacy: false,
   });
 
   const totalSteps = 8;
@@ -112,7 +116,7 @@ export default function QuizPage() {
       case 8:
         return formData.email !== '';
       case 9:
-        return formData.phone !== '';
+        return formData.phone !== '' && formData.consentTCPA && formData.consentPrivacy;
       default:
         return false;
     }
@@ -551,10 +555,36 @@ export default function QuizPage() {
                   </div>
                 </div>
 
-                <div className="rounded-lg bg-zinc-50 p-4 text-xs leading-relaxed text-zinc-600">
-                  <p>
-                    By clicking "See Advisor Match", you provide your express written consent to receive marketing and informational calls, emails, and text messages (including those using an automated dialer or prerecorded voice) from PCM Encore and the financial partners listed <a href="#" className="text-[#5B4FE9] underline">here</a> at the phone number and email address you provide. Message and data rates may apply. Message frequency may vary. You can opt out at any time by replying STOP or contacting us at <a href="mailto:hello@encoreinvestment.com" className="text-[#5B4FE9]">hello@encoreinvestment.com</a>. Reply HELP for help. Your consent is not required as a condition of purchase. See our <a href="#" className="text-[#5B4FE9] underline">Terms of Use</a> and <a href="#" className="text-[#5B4FE9] underline">Privacy Policy</a> for more. For California residents, click <a href="#" className="text-[#5B4FE9] underline">here</a>.
-                  </p>
+                {/* Consent Checkboxes */}
+                <div className="space-y-4">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.consentTCPA}
+                      onChange={(e) => setFormData(prev => ({ ...prev, consentTCPA: e.target.checked }))}
+                      className="mt-1 h-5 w-5 rounded border-zinc-300 text-[#5B4FE9] focus:ring-[#5B4FE9]"
+                    />
+                    <span className="text-sm text-zinc-600">
+                      I consent to receive marketing and informational calls, emails, and text messages (including those using an automated dialer or prerecorded voice) from Advisor Giant and its financial partners at the phone number and email address I provide. Message and data rates may apply. I can opt out at any time by replying STOP. Consent is not required as a condition of purchase.
+                    </span>
+                  </label>
+
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.consentPrivacy}
+                      onChange={(e) => setFormData(prev => ({ ...prev, consentPrivacy: e.target.checked }))}
+                      className="mt-1 h-5 w-5 rounded border-zinc-300 text-[#5B4FE9] focus:ring-[#5B4FE9]"
+                    />
+                    <span className="text-sm text-zinc-600">
+                      I have read and agree to the{" "}
+                      <a href="/terms-of-use" target="_blank" className="text-[#5B4FE9] underline hover:text-[#4D42D7]">Terms of Use</a>
+                      {" "}and{" "}
+                      <a href="/privacy-policy" target="_blank" className="text-[#5B4FE9] underline hover:text-[#4D42D7]">Privacy Policy</a>.
+                      For California residents, see our{" "}
+                      <a href="/do-not-sell" target="_blank" className="text-[#5B4FE9] underline hover:text-[#4D42D7]">Do Not Sell</a> page.
+                    </span>
+                  </label>
                 </div>
 
                 <button

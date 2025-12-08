@@ -9,7 +9,9 @@ export default function AdvisorForm() {
     email: '',
     phone: '',
     aum: '',
-    message: ''
+    message: '',
+    consentTCPA: false,
+    consentPrivacy: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -43,7 +45,9 @@ export default function AdvisorForm() {
         email: '',
         phone: '',
         aum: '',
-        message: ''
+        message: '',
+        consentTCPA: false,
+        consentPrivacy: false,
       });
 
       // Reset success message after 5 seconds
@@ -175,16 +179,44 @@ export default function AdvisorForm() {
             placeholder="Tell us about your practice..."
           ></textarea>
         </div>
+
+        {/* Consent Checkboxes */}
+        <div className="space-y-3">
+          <label className="flex items-start gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={formData.consentTCPA}
+              onChange={(e) => setFormData(prev => ({ ...prev, consentTCPA: e.target.checked }))}
+              className="mt-0.5 h-4 w-4 rounded border-zinc-300 text-[#5B4FE9] focus:ring-[#5B4FE9]"
+            />
+            <span className="text-xs text-zinc-600">
+              I consent to receive marketing calls, emails, and text messages from Advisor Giant and its partners. Message and data rates may apply. I can opt out anytime.
+            </span>
+          </label>
+
+          <label className="flex items-start gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={formData.consentPrivacy}
+              onChange={(e) => setFormData(prev => ({ ...prev, consentPrivacy: e.target.checked }))}
+              className="mt-0.5 h-4 w-4 rounded border-zinc-300 text-[#5B4FE9] focus:ring-[#5B4FE9]"
+            />
+            <span className="text-xs text-zinc-600">
+              I agree to the{" "}
+              <a href="/terms-of-use" target="_blank" className="text-[#5B4FE9] underline hover:text-[#4D42D7]">Terms of Use</a>
+              {" "}and{" "}
+              <a href="/privacy-policy" target="_blank" className="text-[#5B4FE9] underline hover:text-[#4D42D7]">Privacy Policy</a>.
+            </span>
+          </label>
+        </div>
+
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !formData.consentTCPA || !formData.consentPrivacy}
           className="w-full rounded-lg bg-[#C13741] px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#D94651] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Submitting...' : 'Get Connected Now'}
         </button>
-        <p className="text-xs text-zinc-500 text-center">
-          By submitting, you agree to our privacy policy
-        </p>
       </form>
     </div>
   );

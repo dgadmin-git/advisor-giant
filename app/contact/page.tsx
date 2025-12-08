@@ -94,7 +94,7 @@ export default function ContactPage() {
     <>
       <Header />
       <main className="min-h-screen bg-zinc-50 py-12">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-[#1E3A5F] mb-4">Contact Us</h1>
             <p className="text-xl text-zinc-600">

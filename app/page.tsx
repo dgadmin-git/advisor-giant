@@ -21,7 +21,7 @@ export default function Home() {
               </div>
 
               <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-[#1E3A5F] sm:text-6xl lg:text-7xl">
-                Maximize Your Wealth With <span className="text-[#F59E0B]">Strategic Roth Conversions</span>
+                Maximize Your Wealth With <span className="text-[#F59E0B]">Proven Experts</span>
               </h1>
 
               <p className="mb-8 text-lg leading-relaxed text-zinc-700">

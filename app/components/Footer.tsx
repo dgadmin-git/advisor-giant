@@ -25,24 +25,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/advisor" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  Roth Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/advisor" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  2026 Guide
-                </Link>
-              </li>
-              <li>
                 <Link href="/community" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  Testimonials
+                  Why Join
                 </Link>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  FAQ
-                </a>
               </li>
             </ul>
           </div>
@@ -58,21 +43,6 @@ export default function Footer() {
                   Join Our Network
                 </Link>
               </li>
-              <li>
-                <Link href="/advisor" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  14M Database Access
-                </Link>
-              </li>
-              <li>
-                <Link href="/advisor" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  Advisor Benefits
-                </Link>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  Advisor Login
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -83,29 +53,9 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/advisor" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  Press
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
+                <Link href="/contact" className="text-sm text-zinc-300 hover:text-white transition-colors">
                   Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-300 hover:text-white transition-colors">
-                  Careers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

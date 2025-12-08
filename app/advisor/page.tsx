@@ -23,7 +23,7 @@ export default function Home() {
                 <span>8 min read</span>
               </div>
               <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-[#1E3A5F] sm:text-5xl lg:text-6xl">
-                The Overlooked Strategy Transforming Wealth Management Client Acquisition in 2025: Why Your Marketing Needs Data Lists.
+                The Overlooked Strategy Transforming Wealth Management Client Acquisition in 2026: Why Your Marketing Needs Data Lists.
               </h1>
               <p className="text-xl leading-relaxed text-zinc-700">
                 While most financial advisors are throwing capital at expensive SEO campaigns, pay-per-click ads, and outdated seminars, a select group of elite wealth managers are achieving sustainable, high-net-worth client growth using a simpler, proven, and far more cost-effective approach: Precision Data Lists. Here are the strategic secret experts say you need to know before your competitors secure the best prospects.
@@ -217,12 +217,6 @@ export default function Home() {
                     className="w-full sm:w-auto rounded-lg bg-[#C13741] px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-[#D94651] transition-colors"
                   >
                     Get Started Now
-                  </a>
-                  <a
-                    href="#"
-                    className="w-full sm:w-auto text-base font-semibold text-white hover:text-white/80 transition-colors"
-                  >
-                    Learn more <span aria-hidden="true">→</span>
                   </a>
                 </div>
                 <p className="mt-6 text-sm text-white/70">

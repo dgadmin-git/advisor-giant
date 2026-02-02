@@ -27,6 +27,9 @@ export default function Header() {
             <Link href="/community" className="text-white hover:text-zinc-200 font-medium transition-colors">
               For Investors
             </Link>
+            <Link href="/blog" className="text-white hover:text-zinc-200 font-medium transition-colors">
+              Blog
+            </Link>
             <Link href="/contact" className="text-white hover:text-zinc-200 font-medium transition-colors">
               Contact
             </Link>

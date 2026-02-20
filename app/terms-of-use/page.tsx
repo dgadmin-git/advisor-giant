@@ -29,7 +29,7 @@ export default function TermsOfUse() {
                 <li>You are submitting your information voluntarily and with full consent.</li>
                 <li>You have the authority to enter into this agreement.</li>
               </ul>
-              <p className="text-zinc-700">You agree <strong>not</strong> to use the Site for any unlawful, fraudulent, or abusive purpose.</p>
+              <p className="text-zinc-700">You agree <strong>not</strong> to use the Site for any unlawful, fraudulent, or abusive purpose. By submitting information through the Site, you grant us permission to use, process, and share that information as reasonably necessary to operate the Site, facilitate referrals, verify submissions, and support related business operations.</p>
             </section>
 
             <hr className="my-8 border-zinc-200" />
@@ -37,7 +37,7 @@ export default function TermsOfUse() {
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-[#1E3A5F] mb-4">2. Purpose of the Site</h2>
               <p className="text-zinc-700 mb-4">
-                Advisor Giant is <strong>not</strong> a financial advisory firm and does not provide financial, legal, tax, Medicare, or insurance advice.
+                Advisor Giant is <strong>not</strong> a financial advisory firm and does not provide financial, legal, tax, Medicare, or insurance advice. When you submit information through the Site, we may share your information with one or more independent financial advisors or service providers for purposes related to your inquiry, including matching, routing, and follow-up communications.
               </p>
               <p className="text-zinc-700 mb-4">
                 This Site operates as a <strong>lead-referral platform</strong>. When you submit information, we may:
@@ -86,7 +86,8 @@ export default function TermsOfUse() {
               <p className="text-zinc-700 mb-2">These communications may include marketing messages.</p>
               <p className="text-zinc-700 mb-2"><strong>Consent is not required to purchase any goods or services.</strong></p>
               <p className="text-zinc-700 mb-2">Message &amp; data rates may apply.</p>
-              <p className="text-zinc-700">You may opt out at any time.</p>
+              <p className="text-zinc-700 mb-4">You may opt out at any time.</p>
+              <p className="text-zinc-700">Your consent applies regardless of any prior or existing business relationship and survives your submission of information, site exit, or incomplete form submission. You may revoke consent at any time by following opt-out instructions provided in communications or by contacting us directly. Revocation applies prospectively.</p>
             </section>
 
             <hr className="my-8 border-zinc-200" />
@@ -103,11 +104,12 @@ export default function TermsOfUse() {
                 <li><strong>Meta/Facebook Pixel</strong> (advertising optimization, hashed audience uploads)</li>
               </ul>
               <p className="text-zinc-700 mb-4">By using the Site, you acknowledge that:</p>
-              <ul className="list-disc list-inside text-zinc-700 space-y-2 ml-4">
+              <ul className="list-disc list-inside text-zinc-700 space-y-2 ml-4 mb-4">
                 <li>These third parties may collect, process, or store certain technical data</li>
                 <li>We are <strong>not responsible</strong> for the privacy practices or terms of these providers</li>
                 <li>You should review their respective Terms and Privacy Policies as applicable</li>
               </ul>
+              <p className="text-zinc-700">We do not guarantee the availability, accuracy, or performance of third-party tools or services, and we are not responsible for outages, errors, or issues caused by such providers.</p>
             </section>
 
             <hr className="my-8 border-zinc-200" />
@@ -128,7 +130,8 @@ export default function TermsOfUse() {
                 <li>Any services rendered after the referral is made</li>
                 <li>Outcome of financial guidance or recommendations</li>
               </ul>
-              <p className="text-zinc-700">We do <strong>not</strong> control third-party advisors and do <strong>not</strong> guarantee any results.</p>
+              <p className="text-zinc-700 mb-4">We do <strong>not</strong> control third-party advisors and do <strong>not</strong> guarantee any results.</p>
+              <p className="text-zinc-700">Third-party advisors are solely responsible for their own compliance with applicable laws and regulations, including TCPA, CAN-SPAM, and state privacy and licensing requirements.</p>
             </section>
 
             <hr className="my-8 border-zinc-200" />

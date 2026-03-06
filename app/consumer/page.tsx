@@ -352,7 +352,7 @@ export default function ConsumerPage() {
           </div>
           <div className="mt-8 border-t border-zinc-300 pt-8">
             <p className="text-center text-xs text-zinc-600">
-              © 2025 Advisor Giant. Private Network for High-Net-Worth Investors. All rights reserved.
+              © {new Date().getFullYear()} Advisor Giant. Private Network for High-Net-Worth Investors. All rights reserved.
             </p>
           </div>
         </div>

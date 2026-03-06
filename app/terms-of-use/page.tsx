@@ -247,7 +247,7 @@ export default function TermsOfUse() {
               <p className="text-zinc-700 mt-4">
                 <strong>Mailing Address:</strong><br />
                 Advisor Giant<br />
-                1461 Lawrence Dr #2<br />
+                112 Lakeview Canyon Road, Suite 140<br />
                 Thousand Oaks, CA 91362
               </p>
             </section>

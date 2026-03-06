@@ -63,7 +63,7 @@ export default function Footer() {
 
         <div className="border-t border-zinc-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-400">
-            <p>© 2025 AdvisorGiant. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} AdvisorGiant. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link href="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>

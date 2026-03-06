@@ -130,7 +130,7 @@ export default function ContactPage() {
                       <p className="font-medium text-zinc-800">Mailing Address</p>
                       <p className="text-zinc-600">
                         Giant Partners, Inc.<br />
-                        1461 Lawrence Dr #2<br />
+                        112 Lakeview Canyon Road, Suite 140<br />
                         Thousand Oaks, CA 91362
                       </p>
                     </div>

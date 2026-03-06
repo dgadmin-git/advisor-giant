@@ -135,7 +135,7 @@ export default function DoNotSell() {
               </p>
               <p className="text-zinc-700 mt-2">
                 Giant Partners, Inc. (DBA Advisor Giant)<br />
-                1461 Lawrence Dr #2<br />
+                112 Lakeview Canyon Road, Suite 140<br />
                 Thousand Oaks, CA 91362
               </p>
             </section>
